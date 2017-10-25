@@ -1,0 +1,42 @@
+.. highlight:: psql
+.. _ref-alter-cluster:
+
+=================
+``ALTER CLUSTER``
+=================
+
+Alter the state of an existing cluster.
+
+.. rubric:: Table of Contents
+
+.. contents::
+   :local:
+
+Synopsis
+========
+
+::
+
+    ALTER CLUSTER
+      { REROUTE RETRY FAILED }
+
+
+Description
+===========
+
+``ALTER CLUSTER`` applies a change to the cluster state.
+
+Arguments
+=========
+
+``REROUTE RETRY FAILED``
+------------------------
+
+The index setting ``index.allocation.max_retries`` indicates the
+maximum of attempts to allocate a shard on a node. If this limit is reached it
+leaves the shard unallocated.
+This command allows the enforcement to retry the allocation of any unallocated
+shard in the cluster. See :ref:`ddl_reroute_shards` to get convenient use-cases.
+
+The rowcount defines if the allocation process of all unassigned shards in the
+cluster was acknowledged or rejected.
