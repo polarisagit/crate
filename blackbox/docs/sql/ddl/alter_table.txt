@@ -135,6 +135,12 @@ Shard rerouting can help solve several problems:
     * **"Hot Shards"**: Most of your queries affect certain shards only. These
       shards lie on a node that has insufficient resources.
 
+This command takes these :ref:`Routing Allocation Settings <conf_routing>` into
+account. Once an allocation occurs CrateDB tries (by default) to re-balance
+shards to an even state. In this case it could be helpful to disable shard
+re-balancing during the allocation process and set
+``cluster.routing.rebalance.enable=None``.
+
 .. NOTE::
 
     The command only triggers the allocation and reports back if the process has

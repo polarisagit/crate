@@ -23,6 +23,9 @@ Breaking Changes
 Changes
 =======
 
+- Added new cluster setting ``routing.rebalance.enable`` that allows to
+  enable or disable shard rebalancing on the cluster.
+
 - Fixed an issue that caused an error ``Primary key value must not be NULL``
   to be thrown when trying to insert rows in a table that has a generated
   column which is used both in ``PARTITION_BY`` and ``PRIMARY KEY``.
